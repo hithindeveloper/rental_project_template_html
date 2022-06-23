@@ -23,7 +23,7 @@
       });
     };
 
-//vendor registration form validation
+//vendor registration form validation;
     if ($('.vendor_register_form').length) {
       $('.vendor_register_form').parsley().on('field:validated', function (e) {
         var ok = $('.parsley-error').length === 0;
@@ -43,6 +43,17 @@
       $(".company_description").Editor();
     }
 
+    //login form validation;
+    if ($('.login_form').length) {
+      $('.login_form').parsley().on('field:validated', function (e) {
+        var ok = $('.parsley-error').length === 0;
+        $('.bs-callout-info').toggleClass('hidden', !ok);
+        $('.bs-callout-warning').toggleClass('hidden', ok);
+      }).on('form:submit', function (e) {
+
+        return false; // Don't submit form for this demo
+      });
+    };
 
 
 
